@@ -1,4 +1,4 @@
-![Django CI](https://github.com/geektype/crypted/workflows/Django%20CI/badge.svg?branch=master)
+[![Build Status](https://travis-ci.com/geektype/crypted.svg?branch=master)](https://travis-ci.com/geektype/crypted)
 
 # Crypted
 Platform with tools for encryption and security where **you** are in control 😇.

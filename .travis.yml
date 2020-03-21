@@ -2,10 +2,6 @@ language: python
 
 os:
   - "linux"
-  - "osx"
-
-dist:
-  - "trusty"
 
 python:
   - "3.6"
