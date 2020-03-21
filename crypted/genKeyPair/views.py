@@ -26,10 +26,10 @@ def index(request):
     context = {}
     return render(request, 'genKeyPair/index.html', context)
 
- """
+"""
     If public key exists, it is put inside a .pem file and made available to download
     otherwise error displayed 
- """
+"""
 def downloadPublic(request):
     if request.session.get('public', False):
         filename = "public-key.pem"
@@ -44,7 +44,7 @@ def downloadPublic(request):
 """
     If private key exists, it is put inside a .pem file and made available to download
     otherwise error displayed 
- """
+"""
 def downloadPrivate(request):
     if request.session.get('private', False):
         filename = "private-key.pem"
