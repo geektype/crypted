@@ -2,16 +2,19 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from Crypto.PublicKey import RSA
 
-"""
+
+def index(request):
+
+    """
     When page loads an RSA key pair is generated and stored in session variables:
         - 'public'
         - 'private'
     Session expires after 1 minute
 
     return:
-        Html documment 
-"""
-def index(request):
+        Html documment
+    """
+
     key = RSA.generate(2048)
     private_key = key.export_key()
     private_key = private_key.decode("utf-8")
@@ -26,11 +29,14 @@ def index(request):
     context = {}
     return render(request, 'genKeyPair/index.html', context)
 
-"""
-    If public key exists, it is put inside a .pem file and made available to download
-    otherwise error displayed 
-"""
+
 def downloadPublic(request):
+
+    """
+    If public key exists, it is put inside a .pem file and made available to download
+    otherwise error displayed
+    """
+
     if request.session.get('public', False):
         filename = "public-key.pem"
         content = request.session['public']
@@ -41,11 +47,14 @@ def downloadPublic(request):
         return response
     return HttpResponse("no key exists")
 
-"""
-    If private key exists, it is put inside a .pem file and made available to download
-    otherwise error displayed 
-"""
+
 def downloadPrivate(request):
+
+    """
+    If private key exists, it is put inside a .pem file and made available to download
+    otherwise error displayed
+    """
+
     if request.session.get('private', False):
         filename = "private-key.pem"
         content = request.session['private']
