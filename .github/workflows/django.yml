@@ -29,3 +29,5 @@ jobs:
       run: |
         cd crypted
         python manage.py test
+      env:
+        SECRET_KEY: "c4-lczi(3aq=s@g(tc^&uja*zvg=^xngl*f*0m+ph_lbl12%=a"
