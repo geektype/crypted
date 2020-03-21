@@ -1,0 +1,20 @@
+language: python
+
+os:
+  - "linux"
+  - "osx"
+
+dist:
+  - "trusty"
+
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - cd crypted
+  - python manage.py test
