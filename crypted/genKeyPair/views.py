@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from Crypto.PublicKey import RSA
-from Crypto.Random import get_random_bytes
-from Crypto.Cipher import AES, PKCS1_OAEP
 
 
 def index(request):
