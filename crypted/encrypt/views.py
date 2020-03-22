@@ -8,14 +8,14 @@ from Crypto.Cipher import AES, PKCS1_OAEP
 
 def encryptData(pub_key, data):
     """
-        Function that encrypts data using key and returns HTTP download response
+    Function that encrypts data using key and returns HTTP download response
 
-        Parameters:
-        pub_key : request.FILE
-        data : string
+    Parameters:
+    pub_key : request.FILE
+    data : string
 
-        return:
-        HttpResponse
+    return:
+    HttpResponse
     """
     data = data.encode("utf-8")
     filename = "encrypted.bin"
@@ -42,8 +42,8 @@ def encryptData(pub_key, data):
 
 def index(request):
     """
-        View to show form to upload key and type in data
-        User gets an encrypted .bin file when successful
+    View to show form to upload key and type in data
+    User gets an encrypted .bin file when successful
     """
     if request.method == "POST":
         form = EncryptForm(request.POST, request.FILES)
@@ -51,5 +51,5 @@ def index(request):
             return encryptData(request.FILES['public_key'], form.cleaned_data['data'])
     else:
         form = EncryptForm()
-    context = {'form' : form}
+    context = {'form': form}
     return render(request, 'encrypt/index.html', context)
