@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('generate-key/', include('genKeyPair.urls'))
+    path('generate-key/', include('genKeyPair.urls')),
+    path('encrypt/', include('encrypt.urls')),
 ]
